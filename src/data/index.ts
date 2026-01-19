@@ -2,3 +2,4 @@
 // Example: export const mockUsers = [...];
 
 export {};
+export * from "./ctaSlides";

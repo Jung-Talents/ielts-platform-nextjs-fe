@@ -2,3 +2,4 @@
 // Example: export interface User { id: string; name: string; }
 
 export {};
+export * from "./CallToAction";
