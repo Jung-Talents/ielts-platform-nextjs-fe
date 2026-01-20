@@ -1,9 +1,11 @@
-import CardCTA from '../components/CardCTA/CardCTA';
+import { CardCTA, CardBenefits } from '../components';
 
-export default function Home() {
+function Home() {
   return (
     <div>
+      <CardBenefits />
       <CardCTA />
     </div>
   );
 }
+export default Home;
