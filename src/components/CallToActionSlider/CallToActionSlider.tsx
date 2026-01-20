@@ -129,7 +129,7 @@ export default function CallToActionSlider({
 					>
 						{extended.map((s, i) => (
 							<div key={`${s.id}-${i}`} className="w-full flex-shrink-0">
-								<div className="relative w-full" style={{ aspectRatio: "1253 / 773" }}>
+								<div className="relative w-full" style={{ aspectRatio: "1440 / 888" }}>
 									<Image
 										src={s.imageSrc}
 										alt={s.imageAlt}
