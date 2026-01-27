@@ -38,7 +38,7 @@ export default function CallToActionSlider({
 	const pausedRef = useRef(false);
 	pausedRef.current = paused;
 
-	const userInteractedAtRef = useRef(0);
+	const [tick, setTick] = useState(0);
 
 	useEffect(() => {
 		if (total > 1) {
@@ -62,25 +62,21 @@ export default function CallToActionSlider({
 	}, [total]);
 
 	const markInteracted = () => {
-		userInteractedAtRef.current = Date.now();
+		setTick((t) => t + 1);
 	};
 
 	useEffect(() => {
 		if (!autoPlay || total <= 1) return;
-
-		const startedAt = Date.now();
+		if (paused) return;
 
 		const id = window.setTimeout(() => {
 			if (pausedRef.current) return;
-
-			if (userInteractedAtRef.current > startedAt) return;
-
 			setEnableTransition(true);
 			setIndex((i) => i + 1);
 		}, intervalMs);
 
 		return () => window.clearTimeout(id);
-	}, [autoPlay, intervalMs, total, index, enableTransition]);
+	}, [autoPlay, intervalMs, total, index, paused, tick]);
 
 	const onTransitionEnd = () => {
 		if (total <= 1) return;
@@ -110,89 +106,83 @@ export default function CallToActionSlider({
 	const activeDot = total <= 1 ? 0 : (index - 1 + total) % total;
 
 	return (
-		<section className="w-full bg-white">
-			<div className="mx-auto max-w-[1440px]">
-				<div
-					className="relative overflow-hidden rounded-3xl"
-					onMouseEnter={() => setPaused(true)}
-					onMouseLeave={() => setPaused(false)}
-				>
-					<div
-						onTransitionEnd={onTransitionEnd}
-						className={[
-							"flex will-change-transform",
-							enableTransition
-								? "transition-transform duration-250 ease-out"
-								: "transition-none",
-						].join(" ")}
-						style={{ transform: `translateX(-${index * 100}%)` }}
+		<div
+			className="relative overflow-hidden rounded-3xl"
+			onMouseEnter={() => setPaused(true)}
+			onMouseLeave={() => setPaused(false)}
+		>
+			<div
+				onTransitionEnd={onTransitionEnd}
+				className={[
+					"flex will-change-transform",
+					enableTransition ? "transition-transform duration-250 ease-out" : "transition-none",
+				].join(" ")}
+				style={{ transform: `translateX(-${index * 100}%)` }}
+			>
+				{extended.map((s, i) => (
+					<div key={`${s.id}-${i}`} className="w-full flex-shrink-0">
+						<div className="relative w-full aspect-[1440/888]">
+							<Image
+								src={s.imageSrc}
+								alt={s.imageAlt}
+								fill
+								priority={i === 1}
+								sizes="(max-width: 1440px) 100vw, 1440px"
+								className="object-cover"
+							/>
+						</div>
+					</div>
+				))}
+			</div>
+
+			{total > 1 && (
+				<>
+					<button
+						type="button"
+						onClick={() => {
+							markInteracted();
+							setPaused(false);
+							prev();
+						}}
+						aria-label="Previous slide"
+						className="absolute left-0 top-1/2 z-50 -translate-y-1/2 h-14 w-10 bg-zinc-300/80 text-lg text-white flex items-center justify-center hover:bg-zinc-300"
 					>
-						{extended.map((s, i) => (
-							<div key={`${s.id}-${i}`} className="w-full flex-shrink-0">
-								<div className="relative w-full" style={{ aspectRatio: "1440 / 888" }}>
-									<Image
-										src={s.imageSrc}
-										alt={s.imageAlt}
-										fill
-										priority={i === 1}
-										sizes="100vw"
-										className="object-cover"
-									/>
-								</div>
-							</div>
+						‹
+					</button>
+
+					<button
+						type="button"
+						onClick={() => {
+							markInteracted();
+							setPaused(false);
+							next();
+						}}
+						aria-label="Next slide"
+						className="absolute right-0 top-1/2 z-50 -translate-y-1/2 h-14 w-10 bg-zinc-300/80 text-lg text-white flex items-center justify-center hover:bg-zinc-300"
+					>
+						›
+					</button>
+
+					<div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+						{realSlides.map((_, i) => (
+							<button
+								key={i}
+								type="button"
+								onClick={() => {
+									markInteracted();
+									setPaused(false);
+									setEnableTransition(true);
+									setIndex(i + 1);
+								}}
+								aria-label={`Go to slide ${i + 1}`}
+								className={`h-2 w-2 rounded-full ${
+									i === activeDot ? "bg-rose-500" : "bg-zinc-300"
+								}`}
+							/>
 						))}
 					</div>
-
-					{total > 1 && (
-						<>
-							<button
-								type="button"
-								onClick={() => {
-									markInteracted();
-									setPaused(false);
-									prev();
-								}}
-								aria-label="Previous slide"
-								className="fixed left-0 top-1/2 z-50 -translate-y-1/2 h-14 w-10 bg-zinc-300/80 text-lg text-white flex items-center justify-center hover:bg-zinc-300"
-							>
-								‹
-							</button>
-
-							<button
-								type="button"
-								onClick={() => {
-									markInteracted();
-									setPaused(false);
-									next();
-								}}
-								aria-label="Next slide"
-								className="fixed right-0 top-1/2 z-50 -translate-y-1/2 h-14 w-10 bg-zinc-300/80 text-lg text-white flex items-center justify-center hover:bg-zinc-300"
-							>
-								›
-							</button>
-
-							<div className="absolute bottom-3 left-1/2 z-10 flex -translate-x-1/2 gap-2">
-								{realSlides.map((_, i) => (
-									<button
-										key={i}
-										type="button"
-										onClick={() => {
-											markInteracted();
-											setPaused(false);
-											setEnableTransition(true);
-											setIndex(i + 1);
-										}}
-										aria-label={`Go to slide ${i + 1}`}
-										className={`h-2 w-2 rounded-full ${
-											i === activeDot ? "bg-rose-500" : "bg-zinc-300"
-										}`}
-									/>
-								))}
-							</div>
-						</>
-					)}
-				</div>
-			</div>
-		</section>
+				</>
+			)}
+		</div>
 	);
 }
