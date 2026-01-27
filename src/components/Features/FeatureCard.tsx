@@ -9,20 +9,20 @@ interface FeatureCardProps {
 
 export const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description }) => {
   return (
-    <div className="feature-card">
-      <div className="feature-card-content">
-        <div className="feature-icon-wrapper">
+    <div className="card-base">
+      <div className="card-padding flex flex-col gap-[var(--spacing-card-gap)] h-full">
+        <div className="icon-wrapper">
           <Image
             alt={title}
             loading="lazy"
-            width={45}
-            height={36}
-            className="feature-icon"
+            width={0}
+            height={0}
+            className="icon-image-normal-size"
             src={icon}
           />
         </div>
-        <h3 className="feature-card-title">{title}</h3>
-        <p className="feature-card-description">
+        <h3 className="text-card-title capitalize m-0">{title}</h3>
+        <p className="text-body m-0">
           {description}
         </p>
       </div>

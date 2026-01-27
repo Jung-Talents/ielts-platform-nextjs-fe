@@ -31,13 +31,13 @@ const Features: React.FC<FeaturesProps> = ({ benefits, content }) => {
   const { header, button } = content;
 
   return (
-    <div className="features-container">
-      <div className="features-wrapper">
-        <div className="features-header">
-          <h1 className="features-title">
+    <div className="bg-[var(--color-secondary)]">
+      <div className="section-container flex flex-col section-gap items-center justify-center">
+        <div className="header-container">
+          <h1 className="text-heading-1 text-center m-0">
             {header.title} {header.titleSecondLine}
           </h1>
-          <p className="features-subtitle">
+          <p className="text-subtitle text-center m-0 max-w-[var(--max-width-subtitle)]">
             {header.subtitle} {header.subtitleSecondLine}
           </p>
         </div>
@@ -52,21 +52,21 @@ const Features: React.FC<FeaturesProps> = ({ benefits, content }) => {
           ))}
         </div>
         <button
-          className="features-button"
+          className="relative flex items-center justify-center gap-[var(--spacing-button-gap)] text-button py-[var(--spacing-button-padding-vertical)] px-0 rounded-[var(--radius-button)] cursor-pointer bg-transparent border-none transition-all duration-100 ease-in-out hover:scale-[1.015] [&:hover_.button-underline]:w-full"
           onClick={() => {
             window.location.href = button.link;
           }}
         >
-          <span className="features-button-text">
+          <span className="relative">
             {button.text}
-            <span className="features-button-underline" />
+            <span className="button-underline absolute block w-0 left-0 -bottom-0.5 h-0.5 bg-[var(--color-primary)] transition-all duration-[400ms] ease-in-out" />
           </span>
           <Image
             alt="arrow right icon"
             loading="lazy"
             width={27}
             height={27}
-            className="features-arrow-icon"
+            className="icon-image-small-size"
             src={button.arrowIcon}
           />
         </button>

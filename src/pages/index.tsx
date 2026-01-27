@@ -1,5 +1,5 @@
 import Features from "../components/Features/Features";
-import { Benefits, BenefitsContent } from "../components/Features/Content/Benefits";
+import { Benefits, BenefitsContent } from "../data/Content/Features/Benefits";
 
 export default function Home() {
   return (
@@ -7,4 +7,5 @@ export default function Home() {
       <Features benefits={Benefits} content={BenefitsContent} />
     </div>
   );
+  
 }
