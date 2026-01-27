@@ -1,0 +1,101 @@
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  
+  /* Colors */
+  --color-primary: #f5222d;
+  --color-secondary: #fff1e1;
+  --color-neutral-white: #fff;
+  --color-neutral-7: #8c8c8c;
+  --color-neutral-12: #141414;
+  
+  /* Typography */
+  --font-be-vietnam-pro: "Be Vietnam Pro", sans-serif;
+  --text-desktop-h1: 48px;
+  --text-desktop-h1--line-height: 65.7px;
+  --text-desktop-h1--font-weight: 700;
+  --text-desktop-h1--letter-spacing: -1.44px;
+  --text-desktop-subtitle: 24px;
+  --text-desktop-subtitle--line-height: 1.25;
+  --text-desktop-subtitle--font-weight: 400;
+  --text-desktop-text: 16px;
+  --text-desktop-text--line-height: 19px;
+  --text-desktop-text--font-weight: 600;
+  --text-desktop-body: 16px;
+  --text-desktop-body--line-height: 21.2px;
+  --text-desktop-body--font-weight: 400;
+  --text-desktop-button: 16px;
+  --text-desktop-button--line-height: 32px;
+  --text-desktop-button--letter-spacing: -0.6px;
+  --text-desktop-button--font-weight: 400;
+  
+  /* Mobile Typography */
+  --text-mobile-h1: 32px;
+  --text-mobile-h1--line-height: 1.088;
+  --text-mobile-h1--font-weight: 600;
+  --text-mobile-subtitle: 16px;
+  --text-mobile-subtitle--line-height: 1.5;
+  --text-mobile-subtitle--font-weight: 400;
+  
+  /* Spacing */
+  --spacing-section: 96px;
+  --spacing-section-horizontal: 106px;
+  --spacing-section-gap: 30px;
+  --spacing-header-gap: 24px;
+  --spacing-grid-gap: 16px;
+  --spacing-card-padding-top: 40px;
+  --spacing-card-padding-horizontal: 24px;
+  --spacing-card-padding-bottom: 24px;
+  --spacing-card-gap: 24px;
+  --spacing-button-gap: 8px;
+  --spacing-button-padding-vertical: 14px;
+  
+  /* Mobile Spacing */
+  --spacing-mobile-section-vertical: 40px;
+  --spacing-mobile-section-horizontal: 20px;
+  --spacing-mobile-section-gap: 30px;
+  --spacing-mobile-header-gap: 24px;
+  --spacing-mobile-grid-gap: 16px;
+  --spacing-mobile-card-padding-top: 40px;
+  --spacing-mobile-card-padding-horizontal: 8px;
+  --spacing-mobile-card-padding-bottom: 40px;
+  
+  /* Border Radius */
+  --radius-card: 12px;
+  --radius-button: 8px;
+  
+  /* Shadows */
+  --drop-shadow-high: 0px 20px 50px 0px rgba(18, 17, 39, 0.08);
+  
+  /* Max Widths */
+  --max-width-container: 1440px;
+  --max-width-header: 838px;
+  --max-width-subtitle: 766px;
+  --max-width-grid: 1228px;
+  
+  /* Card Sizes */
+  --card-width-default: 310px;
+  --card-height: 273px;
+  --card-width-mobile: 250px;
+  --card-height-mobile: 280px;
+  
+  /* Icon Sizes */
+  --icon-feature-width: 45px;
+  --icon-feature-height: 36px;
+  --icon-arrow-size: 27.32px;
+  --icon-mobile-wrapper-size: 48px;
+  --icon-mobile-size: 32px;
+}
+
+@theme {
+  --breakpoint-md: 850px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}

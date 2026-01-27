@@ -1,0 +1,130 @@
+@layer components {
+  /* Typography Components */
+  .text-heading-1 {
+    @apply font-[family-name:var(--font-be-vietnam-pro)] 
+           text-[length:var(--text-desktop-h1)] 
+           max-md:text-[length:var(--text-mobile-h1)] 
+           leading-[var(--text-desktop-h1--line-height)] 
+           max-md:leading-[var(--text-mobile-h1--line-height)] 
+           font-[number:var(--text-desktop-h1--font-weight)] 
+           max-md:font-[number:var(--text-mobile-h1--font-weight)] 
+           text-[var(--color-neutral-12)] 
+           tracking-[var(--text-desktop-h1--letter-spacing)] 
+           max-md:tracking-normal;
+  }
+
+  .text-subtitle {
+    @apply font-[family-name:var(--font-be-vietnam-pro)] 
+           text-[length:var(--text-desktop-subtitle)] 
+           max-md:text-[length:var(--text-mobile-subtitle)] 
+           leading-[var(--text-desktop-subtitle--line-height)] 
+           max-md:leading-[var(--text-mobile-subtitle--line-height)] 
+           font-[number:var(--text-desktop-subtitle--font-weight)] 
+           max-md:font-[number:var(--text-mobile-subtitle--font-weight)] 
+           text-[var(--color-neutral-7)];
+  }
+
+  .text-body {
+    @apply font-[family-name:var(--font-be-vietnam-pro)] 
+           text-[length:var(--text-desktop-body)] 
+           leading-[var(--text-desktop-body--line-height)] 
+           font-[number:var(--text-desktop-body--font-weight)] 
+           text-[var(--color-neutral-12)];
+  }
+
+  .text-card-title {
+    @apply font-[family-name:var(--font-be-vietnam-pro)] 
+           text-[length:var(--text-desktop-text)] 
+           leading-[var(--text-desktop-text--line-height)] 
+           font-[number:var(--text-desktop-text--font-weight)] 
+           text-[var(--color-neutral-12)];
+  }
+
+  .text-button {
+    @apply font-[family-name:var(--font-be-vietnam-pro)] 
+           text-[length:var(--text-desktop-button)] 
+           leading-[var(--text-desktop-button--line-height)] 
+           tracking-[var(--text-desktop-button--letter-spacing)] 
+           font-[number:var(--text-desktop-button--font-weight)] 
+           text-[var(--color-primary)];
+  }
+
+  /* Layout Components */
+  .card-base {
+    @apply bg-[var(--color-neutral-white)] 
+           rounded-[var(--radius-card)] 
+           shadow-[var(--drop-shadow-high)] 
+           shrink-0
+           w-[var(--card-width-default)]
+           max-md:w-[var(--card-width-mobile)]
+           h-[var(--card-height)]
+           max-md:h-[var(--card-height-mobile)];
+  }
+
+  .card-padding {
+    @apply px-[var(--spacing-card-padding-horizontal)] 
+           max-md:px-[var(--spacing-mobile-card-padding-horizontal)] 
+           pt-[var(--spacing-card-padding-top)] 
+           max-md:pt-[var(--spacing-mobile-card-padding-top)] 
+           pb-[var(--spacing-card-padding-bottom)] 
+           max-md:pb-[var(--spacing-mobile-card-padding-bottom)];
+  }
+
+  .section-container {
+    @apply max-w-[var(--max-width-container)] 
+           mx-auto 
+           px-[var(--spacing-section-horizontal)] 
+           max-md:px-[var(--spacing-mobile-section-horizontal)] 
+           py-[var(--spacing-section)] 
+           max-md:py-[var(--spacing-mobile-section-vertical)];
+  }
+
+  .section-gap {
+    @apply gap-[var(--spacing-section-gap)] 
+           max-md:gap-[var(--spacing-mobile-section-gap)];
+  }
+
+  .header-container {
+    @apply flex 
+           flex-col 
+           gap-[var(--spacing-header-gap)] 
+           max-md:gap-[var(--spacing-mobile-header-gap)]
+           items-center 
+           text-center 
+           max-w-[var(--max-width-header)] 
+           max-md:w-full;
+  }
+
+  .features-grid {
+    @apply flex 
+           flex-wrap 
+           gap-[var(--spacing-grid-gap)]
+           max-md:gap-[var(--spacing-mobile-grid-gap)]
+           justify-center 
+           w-full 
+           max-w-[var(--max-width-grid)];
+  }
+
+  /* Icon Components */
+  .icon-wrapper {
+    @apply flex 
+           justify-start 
+           w-[var(--icon-feature-width)] 
+           max-md:w-[var(--icon-mobile-wrapper-size)] 
+           h-[var(--icon-feature-height)] 
+           max-md:h-[var(--icon-mobile-wrapper-size)];
+  }
+
+  .icon-image-normal-size {
+    @apply w-[var(--icon-feature-width)] 
+           max-md:w-[var(--icon-mobile-size)] 
+           h-[var(--icon-feature-height)] 
+           max-md:h-[var(--icon-mobile-size)] 
+           object-contain;
+  }
+
+  .icon-image-small-size {
+    @apply w-[var(--icon-arrow-size)]
+           h-[var(--icon-arrow-size)];
+  }
+}
