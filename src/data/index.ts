@@ -1,4 +1,3 @@
 // Static data and mock data
-// Example: export const mockUsers = [...];
-
-export {};
+export { cardBenefits } from "./CardBenefitsData";
+export type { CardBenefit } from "./CardBenefitsData";
