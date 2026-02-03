@@ -1,2 +1,6 @@
 // TypeScript interfaces
 // Example: export interface User { id: string; name: string; }
+
+export {};
+export * from "./CallToAction";
+// Example: export interface User { id: string; name: string; }
