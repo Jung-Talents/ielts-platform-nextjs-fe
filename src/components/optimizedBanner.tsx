@@ -119,7 +119,7 @@ export default function IELTSBanner() {
 
                 {/* Button */}
                 <button
-                  className="mt-3 sm:mt-4 px-4 sm:px-5 lg:px-6 h-7 sm:h-8 lg:h-9 bg-white border border-[#FF2D38] rounded text-[#FF2D38] text-xs sm:text-sm hover:bg-[#FFF5F5] transition-colors duration-200"
+                  className="self-start mt-3 sm:mt-4 px-3 sm:px-4 h-7 sm:h-8 lg:h-9 bg-white border border-[#FF2D38] rounded text-[#FF2D38] text-xs sm:text-sm hover:bg-[#FFF5F5] transition-colors duration-200"
                   style={{
                     fontFamily: "'Be Vietnam Pro', sans-serif",
                     fontWeight: 400
@@ -156,7 +156,7 @@ export default function IELTSBanner() {
 
                   {/* Coming Soon */}
                   <p
-                    className="text-[#BFBFBF] text-sm sm:text-base lg:text-lg"
+                    className="text-[#BFBFBF] text-lg sm:text-xl lg:text-2xl"
                     style={{ fontFamily: "'Be Vietnam Pro', sans-serif", fontWeight: 400 }}
                   >
                     (Sắp ra mắt)
@@ -191,7 +191,7 @@ export default function IELTSBanner() {
 
                   {/* Coming Soon */}
                   <p
-                    className="text-[#BFBFBF] text-sm sm:text-base lg:text-lg"
+                    className="text-[#BFBFBF] text-lg sm:text-xl lg:text-2xl"
                     style={{ fontFamily: "'Be Vietnam Pro', sans-serif", fontWeight: 400 }}
                   >
                     (Sắp ra mắt)
@@ -226,7 +226,7 @@ export default function IELTSBanner() {
 
                   {/* Coming Soon */}
                   <p
-                    className="text-[#BFBFBF] text-sm sm:text-base lg:text-lg"
+                    className="text-[#BFBFBF] text-lg sm:text-xl lg:text-2xl"
                     style={{ fontFamily: "'Be Vietnam Pro', sans-serif", fontWeight: 400 }}
                   >
                     (Sắp ra mắt)
